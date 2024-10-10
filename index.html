@@ -9,40 +9,67 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f8f0f0;
             color: #333;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #4CAF50;
+            background-color: #C62828; /* Red color */
             color: white;
             padding: 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        header p {
+            font-size: 1.2em;
         }
         .container {
             width: 80%;
             margin: auto;
-            overflow: hidden;
             padding: 20px;
         }
-        h1, h2 {
-            color: #333;
-        }
-        .intro, .content, .gallery, .contact {
+        .section {
+            display: none; /* Hidden by default */
             background-color: white;
             padding: 20px;
             margin: 20px 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            animation: fadeIn 0.5s; /* Animation */
         }
-        .intro p {
-            font-size: 18px;
-            line-height: 1.6;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            margin: 10px 0;
+        .buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #C62828; /* Red color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #B71C1C; /* Darker Red */
+        }
+        h2 {
+            color: #C62828; /* Red color */
+            text-align: center;
+            margin-top: 0;
         }
         .gallery {
             display: flex;
@@ -52,12 +79,10 @@
         .gallery img {
             width: 30%;
             border-radius: 8px;
-        }
-        .content p {
-            line-height: 1.6;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         footer {
-            background-color: #333;
+            background-color: #C62828; /* Red color */
             color: white;
             text-align: center;
             padding: 10px 0;
@@ -70,13 +95,14 @@
             display: inline-block;
             margin: 5px;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #C62828; /* Red color */
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
         .contact a:hover {
-            background-color: #45a049;
+            background-color: #B71C1C; /* Darker Red */
         }
     </style>
 </head>
@@ -88,22 +114,30 @@
 </header>
 
 <div class="container">
+    <div class="buttons">
+        <button onclick="showSection('about')">About Me</button>
+        <button onclick="showSection('career')">Career</button>
+        <button onclick="showSection('hobbies')">Hobbies & Interests</button>
+        <button onclick="showSection('gallery')">Gallery</button>
+        <button onclick="showSection('contact')">Contact Me</button>
+    </div>
+
     <!-- Introduction Section -->
-    <div class="intro">
+    <div class="section" id="about">
         <h2>About Me</h2>
         <p>Hello! My name is Anshul Bajaj, and I am 26 years old. I hold an MBA in Finance and International Business from Mumbai University. Currently, I manage our family business, which specializes in pharmaceutical exports and chemical manufacturing. I was born on 4th February 1998, at 8:45 AM in Khamgaon, Maharashtra.</p>
         <p>I am an ambitious, hardworking individual who enjoys staying active, traveling, and exploring new opportunities in both my personal and professional life.</p>
     </div>
 
     <!-- Career Section -->
-    <div class="content">
+    <div class="section" id="career">
         <h2>Career</h2>
         <p>Currently, I am leading the operations of our family business, which focuses on pharmaceutical exports and chemical manufacturing. This role has provided me with a wealth of experience in international business, finance, and strategic planning.</p>
         <p>My passion for finance and global trade has driven me to expand our business and seek new opportunities in global markets. I take pride in my work and look forward to further growing our enterprise.</p>
     </div>
 
     <!-- Hobbies Section -->
-    <div class="content">
+    <div class="section" id="hobbies">
         <h2>Hobbies & Interests</h2>
         <p>I believe in maintaining a balanced lifestyle and enjoy the following activities:</p>
         <ul>
@@ -115,15 +149,17 @@
     </div>
 
     <!-- Image Gallery Section -->
-    <div class="gallery">
+    <div class="section" id="gallery">
         <h2>Gallery</h2>
-        <img src="https://github.com/yashbajaj2011/Anshul-s-biodata/blob/main/WhatsApp%20Image%202024-10-10%20at%2014.22.22_7981afb7.jpg" alt="Anshul Image 1">
-        <img src="https://github.com/yashbajaj2011/Anshul-s-biodata/blob/main/WhatsApp%20Image%202024-10-10%20at%2014.26.11_fa36bb7a.jpg" alt="Anshul Image 2">
-        <img src="https://github.com/yashbajaj2011/Anshul-s-biodata/blob/main/WhatsApp%20Image%202024-10-10%20at%2015.01.53_63d881dd.jpg"Anshul Image 3">
+        <div class="gallery">
+            <img src="https://github.com/yashbajaj2011/Anshul-s-biodata/raw/main/WhatsApp%20Image%202024-10-10%20at%2014.22.22_7981afb7.jpg" alt="Anshul Image 1">
+            <img src="https://github.com/yashbajaj2011/Anshul-s-biodata/raw/main/WhatsApp%20Image%202024-10-10%20at%2014.26.11_fa36bb7a.jpg" alt="Anshul Image 2">
+            <img src="https://github.com/yashbajaj2011/Anshul-s-biodata/raw/main/WhatsApp%20Image%202024-10-10%20at%2015.01.53_63d881dd.jpg" alt="Anshul Image 3">
+        </div>
     </div>
 
     <!-- Contact Section -->
-    <div class="contact">
+    <div class="section" id="contact">
         <h2>Contact Me</h2>
         <p>For more details or inquiries, feel free to get in touch:</p>
         <a href="mailto:anshul@example.com">Email Me</a>
@@ -133,6 +169,25 @@
 <footer>
     <p>Created by Anshul Bajaj | © 2024</p>
 </footer>
+
+<script>
+    function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            section.style.display = 'none'; // Hide each section
+        });
+
+        // Show the selected section
+        const selectedSection = document.getElementById(sectionId);
+        selectedSection.style.display = 'block'; // Show the selected section
+    }
+
+    // Show the About Me section by default
+    document.addEventListener("DOMContentLoaded", () => {
+        showSection('about');
+    });
+</script>
 
 </body>
 </html>
